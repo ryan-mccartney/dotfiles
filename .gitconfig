@@ -1,0 +1,24 @@
+[user]
+	name = ryan-mccartney-cs
+	email = ryan.mccartney@carsales.com.au
+[core]
+	editor = 'vim'
+	pager = delta
+[diff]
+	colorMoved = default
+[delta]
+	navigate = true
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = OneHalfDark
+	line-numbers = true
+	side-by-side = true
+[interactive]
+    diffFilter = delta --color-only
+[credential]
+	helper = wincred
+[mergetool]
+	keepBackup = false
+[safe]
+	directory = C:/stash/csn.cmap.experience.api
+	directory = C:/stash/browserstack_testing

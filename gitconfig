@@ -1,0 +1,57 @@
+[http]
+	sslCAInfo = C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+	sslBackend = openssl
+[diff "astextplain"]
+	textconv = astextplain
+[diff]
+	colorMoved = default
+[core]
+	editor = 'vim'
+	pager = delta
+	autocrlf = true
+	fscache = true
+	symlinks = false
+[delta]
+	navigate = true
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = OneHalfDark
+	line-numbers = true
+	side-by-side = true
+	line-numbers-left-format = ""
+	line-numbers-right-format = "| "
+[interactive]
+    diffFilter = delta --color-only
+[alias]
+	ls = log --pretty=format:%C(yellow)%h\\ %Creset%s%C(yellow)\\ [%cn]\\%Cgreen%d
+	lsa = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
+	st = status
+	co = checkout
+	fukd = !git reset --hard && git checkout . && git clean -df
+	oc = commit -a --amend -C HEAD
+	git = !exec git
+	undo = reset HEAD~1 --mixed
+	alias = !git config --get-regexp alias
+	sdiff = !git show --color --pretty=format:\"The author of %H was %an, %ar, %nThe title was %s %N %b\"
+	unstash = stash apply -q stash@{0}
+	find = !git log | grep -B 4 -m 5
+	catchup = !git fetch && git pull --ff-only
+	edit = !git diff HEAD --name-only
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
+	bls = !git branch --list -a | ag
+	slate = !git reset && git checkout . && git clean -f
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = master
+[credential]
+	helper = manager-core
+[credential "https://dev.azure.com"]
+	useHttpPath = true
