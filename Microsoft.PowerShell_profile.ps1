@@ -30,7 +30,9 @@ Function gsa([string[]]$stashindexes)
         git stash apply "stash@{$index}"
     }
 }
-Function prmake {gh pr create -B staging}
+Function prmake {gh pr create -B dev}
+Function prstaging {gh pr create -B staging}
+Function ignition {npm i --legacy-peer-deps;npm start}
 Function repo {gh repo view -w}
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
